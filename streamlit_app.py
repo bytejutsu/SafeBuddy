@@ -39,4 +39,4 @@ if incidents:
     st.subheader("Summary Statistics")
     st.write(f"Total Incidents: {len(df)}")
 else:
-    st.write("No incidents data available.")
+    st.write("No incidents data available!.")
