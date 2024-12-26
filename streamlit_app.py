@@ -1,5 +1,7 @@
 import streamlit as st
 from supabase import create_client
+import pandas as pd
+
 
 # Initialize connection to Supabase
 @st.cache_resource
@@ -28,7 +30,6 @@ st.title("Incidents Table")
 
 if incidents:
     # Convert the data into a DataFrame for better display
-    import pandas as pd
     df = pd.DataFrame(incidents)
 
     # Display the table in Streamlit
