@@ -13,11 +13,12 @@ supabase = init_connection()
 # Perform query to fetch data from the "incidents" table
 @st.cache_data(ttl=600)
 def fetch_incidents():
-    response = supabase.table("incidents").select("*").execute()
-    if response.status_code != 200:
-        st.error("Failed to fetch data from Supabase!")
+    try:
+        response = supabase.table("incidents").select("*").execute()
+        return response.data  # Return only the data as a list of dictionaries.
+    except Exception as e:
+        st.error(f"Query failed: {e}")
         return []
-    return response.data
 
 # Fetch the incidents data
 incidents = fetch_incidents()
