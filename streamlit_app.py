@@ -38,6 +38,5 @@ if incidents:
     # Optional: Show specific metrics or analysis
     st.subheader("Summary Statistics")
     st.write(f"Total Incidents: {len(df)}")
-    st.write(f"Zones Covered: {df['Zone'].nunique()}")
 else:
     st.write("No incidents data available.")
